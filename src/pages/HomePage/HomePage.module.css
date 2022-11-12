@@ -3,28 +3,26 @@
     padding: 0%;
     box-sizing: border-box;
 }
-.last{
+.cardsWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    grid-gap:50px ;
+    margin-top: 3%;
+}
+.img{
+    width: 50%;
+    height: 50vh;
+}
+.aboutUs{
+    display: inline-flex;
+}
+.who{
+    align-items: center;
+    margin: 3% 0% 0% 10%;
+}
+.who h1{
+    align-items: center;
     text-align: center;
-    text-shadow: greenyellow 1px 0 10px;
-    margin-top: 2%;
-    color: black;
-}
-.adOne img{
-    width: 16%;
-    margin:5% 0 0 5%;
-}
-.adOne p{
-    margin:2% 0 0 5%;
-}
-.adOne button{
-    margin:2% 0 0 8%;
-    width: 10%;
-    height: 25px;
-    border-radius: 8px;
-    border:none;
-    cursor: pointer;
-    font-size: 17px;
-    font-weight: 600;
-    color: white;
-    background-color: greenyellow;
+    margin-bottom: 5%;
 }

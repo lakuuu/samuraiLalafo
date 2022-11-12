@@ -4,18 +4,18 @@ import css from "./Header.module.css"
 const Header = () => {
     return (
         <header>
-            <h1>SOLID.FA</h1>
+            <h1>
+                <Link className={css.logo} to="/">
+                     SOLID.FA
+                </Link>
+            </h1>
             <div className={css.aboutUs}>
                   <h3>О нас</h3>
-                  <h3>Контакты</h3>
-                <ul>
-                    <li>
-                      <Link path="LogInPage">Войти</Link>
-                    </li>
-                </ul>
+                  <Link className={css.ad} to="/AdPage">Контакты</Link>
+                  <Link className={css.list} to="/LogInPage">Войти</Link>
             </div>
         </header>
     )
 }
 
-export default Header
+export default Header;

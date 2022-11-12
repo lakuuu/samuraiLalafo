@@ -17,4 +17,19 @@ header h1{
     justify-content: space-evenly;
     margin:-30px 5%  0% 60%;
 }
-
+.list{
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+}
+.logo{
+    text-decoration: none;
+    color: black;
+}
+.ad{
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    font-size: 20px;
+}

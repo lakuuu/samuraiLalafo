@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    padding: 40px 100px;
+}
+.btn{
+    padding: 10px 15px;
+    background: rgb(37, 138, 253);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.danger{
+    background-color: red;
+}
+.error{
+    color: red;
+}

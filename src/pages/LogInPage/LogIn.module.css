@@ -1,0 +1,29 @@
+.inps{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-gap: 50px;
+    border: 1px solid black;
+    height: 40vh;
+    padding: 70px 5px 5px 5px;
+    width: 30%;
+    margin: 3% 0px 0px 35% ;
+    border-radius: 50px;
+}
+.inps input{
+    width: 170px;
+    height: 4vh;
+    border: 2px solid aqua;
+    text-align: center;
+}
+.inps button{
+    width: 40%;
+    height: 4vh;
+    background-color: aqua;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+Footer{
+    margin-top: 20%;
+}
