@@ -39,9 +39,7 @@ const LogIn = () => {
             type="password"
              placeholder="password" />
           </label>
-          <button>
-            <Link>Войти</Link>
-          </button>
+            <button>Войти</button>
           {isError && <div className="error">Login or Password is incorrect</div>}
         </form>
       </div>

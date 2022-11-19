@@ -1,6 +1,19 @@
+import { Link } from "react-router-dom";
 import css from "./cards.module.css";
 
-function Cards(  { img, title, price, isAdmin }  ) {
+function Cards(  { id, img, title, price, isAdmin }  ) {
+  const onDelete = () => {
+    const res = window.confirm("удалить?")
+    if(res) {
+      fetch(`https://6346a1989eb7f8c0f88109b3.mockapi.io/users/${id}`, {
+        method: "delete"
+      })
+      .then(() => {
+        alert("вы успешно удалили" + id);
+        window.location.reload();
+      })
+    }
+  }
   return (
     <div className={css.wrapper}>
       <div className={css.imgWrapper}>
@@ -12,8 +25,8 @@ function Cards(  { img, title, price, isAdmin }  ) {
           <div>
           {
             isAdmin
-            ?<button className="btn danger">Удалить</button>
-            :<button className="btn">Подробнее</button>
+            ?<button onClick={onDelete} className="btn danger">Удалить</button>
+            :<Link to={`/About/${id}`}><button className="btn">Подробнее</button></Link>
           }
           </div>
         </div>

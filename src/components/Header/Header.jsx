@@ -11,7 +11,7 @@ const Header = () => {
             </h1>
             <div className={css.aboutUs}>
                   <h3>О нас</h3>
-                  <Link className={css.ad} to="/AdPage">Контакты</Link>
+                  <h3>Контакты</h3>
                   <Link className={css.list} to="/LogInPage">Войти</Link>
             </div>
         </header>

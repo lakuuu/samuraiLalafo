@@ -14,7 +14,7 @@ const HomePage = ( { houses } ) => {
         </Title>
         <div className={css.cardsWrapper}>
             {
-                houses.map((item) => <Card {...item} /> )
+                houses.map((item) => <Card key={item.id} {...item} /> )
             }
         </div>
         <div className="container">

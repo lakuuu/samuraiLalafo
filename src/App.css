@@ -6,6 +6,10 @@
 .container{
     padding: 40px 100px;
 }
+.d-flex{
+    display: flex;
+    grid-gap: 15px;
+}
 .btn{
     padding: 10px 15px;
     background: rgb(37, 138, 253);
@@ -13,10 +17,17 @@
     border: none;
     border-radius: 6px;
     cursor: pointer;
+    text-align: center;
+    text-align: center;
 }
 .danger{
     background-color: red;
 }
 .error{
     color: red;
+    margin-top: 10%;
+}
+.d-grid{
+    display: grid;
+    grid-gap: 15px;
 }

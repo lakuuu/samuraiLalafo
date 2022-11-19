@@ -1,0 +1,39 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+.img{
+    width: 50%;
+    height: 40vh;
+}
+.details{
+    display: flex;
+    flex-direction: column;
+    margin: -27% 0% 0% 60%;
+    grid-gap: 50px;
+    font-size: 20px;
+}
+.back{
+    display: flex;
+    border: none;
+    padding: 10px 15px;
+    background-color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+.call{
+ text-align: center;
+ margin-top: 5%;
+}
+.call button{
+    width: 8%;
+    height: 5vh;
+    border-color: aqua;
+    background-color: white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.a a{
+text-decoration: none;
+}

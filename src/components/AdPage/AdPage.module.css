@@ -1,3 +1,40 @@
+.btnone{
+    margin:5% 5% 10% 28%;
+    border: none;
+    background-color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+.btnsec{
+    color: aqua;
+    border-color: aqua;
+    background-color: white;
+    width: 9%;
+    height: 5vh;
+    border-radius: 20px;
+    
+}
 .add h1{
     text-align: center;
+}
+.name{
+    width: 45%;
+    height: 4vh;
+}
+.des{
+    width: 45%;
+    height: 10vh;
+}
+.cost{
+    width: 45%;
+    height: 4vh;
+}
+.add h6{
+    color: rgba(199, 186, 186, 0.769);
+    font-size: 14px;
+    font-weight: 500;
+}
+.gap{
+    margin-bottom: 2%;
+    margin-top: 2%;
 }
