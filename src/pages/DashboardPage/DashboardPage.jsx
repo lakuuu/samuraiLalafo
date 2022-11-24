@@ -2,12 +2,18 @@ import Title from "../../components/title/title";
 import css from "./DashboardPage.module.css"
 import { Link, } from "react-router-dom"
 import Card from "../../components/Cards/Cards";
+import { useSelector } from "react-redux";
 
 
 
-const DashboarPage = (  { houses }  ) => {
-  console.log(houses)
+
+
+const DashboarPage = () => {
+  const houses = useSelector((state) => state.data);
+  
+
   return (
+    
     <div className="container">
       <Title position="center">Мои обьявление</Title>
       <Link className={css.ad} to="/AdPage">

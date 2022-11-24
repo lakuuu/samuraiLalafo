@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
+import API from "../../api/Api";
 import css from "./cards.module.css";
 
 function Cards(  { id, img, title, price, isAdmin }  ) {
   const onDelete = () => {
     const res = window.confirm("удалить?")
     if(res) {
-      fetch(`https://6346a1989eb7f8c0f88109b3.mockapi.io/users/${id}`, {
-        method: "delete"
-      })
+      API.deleteAdById(id)
       .then(() => {
         alert("вы успешно удалили" + id);
         window.location.reload();

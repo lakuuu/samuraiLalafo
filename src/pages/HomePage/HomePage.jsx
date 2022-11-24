@@ -3,9 +3,10 @@ import Title from "../../components/title/title";
 import Card from "../../components/Cards/Cards";
 import image from "./image.png";
 import Footer from "../../components/Footer/Footer";
+import { useSelector } from "react-redux";
 
-const HomePage = ( { houses } ) => {
-    console.log(houses);
+const HomePage = () => {
+  const houses = useSelector((state) => state.data);
   return (
     <div>
       <div className="container">

@@ -1,8 +1,12 @@
 import Title from "../../components/title/title";
 import css from "./LogIn.module.css";
 import Footer from "../../components/Footer/Footer";
-import { Link, useNavigate  } from "react-router-dom";
+import { useNavigate  } from "react-router-dom";
 import { useState } from "react";
+import { ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const LogIn = () => {
   const [login, setLogin] = useState("");
@@ -20,8 +24,11 @@ const LogIn = () => {
         }
     }
 
+    const notify=() => toast ("wow so easy")
+
   return (
     <div>
+
       <div className="container">
         <Title position="center">Войти</Title>
         <form onSubmit={submit} onChange={() => setError(false)} className={css.inps}>
@@ -39,7 +46,8 @@ const LogIn = () => {
             type="password"
              placeholder="password" />
           </label>
-            <button>Войти</button>
+            <button onClick={notify} >Войти</button>
+            <ToastContainer/>
           {isError && <div className="error">Login or Password is incorrect</div>}
         </form>
       </div>

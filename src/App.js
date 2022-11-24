@@ -6,26 +6,41 @@ import LoginPage from "./pages/LogInPage/LogIn";
 import AdPage from "./components/AdPage/AdPage";
 import DashboarPage from "./pages/DashboardPage/DashboardPage";
 import About from "./pages/About/About";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import API, {} from "./api/Api";
+import { useDispatch } from "react-redux";
+import { usersSliceActions } from "./redux"
+
 
 function App() {
-  const[houses, setHouses] = useState([])
-
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    fetch("https://6346a1989eb7f8c0f88109b3.mockapi.io/users")
-    .then((res) => res.json())
-    .then((data) => setHouses(data))
+    API.getAllAds().then((res) => {
+      dispatch( usersSliceActions.addHouses(res.data) )
+    });
+
+
+    // Api.get('users')
+    //   .then((res) => setHouses(res.data))
+
+    // axios.get(base_url + "users")
+    // .then((res) => setHouses(res.data))
+  // })
+
+    // fetch(base_url + "users")
+    // .then((res) => res.json())
+    // .then((data) => setHouses(data))
   },[]);
  
   return (
     <div className="App">
       <Header />
           <Routes>
-              <Route path="/" element={<HomePage houses={houses}/>} />
+              <Route path="/" element={<HomePage/>} />
               <Route path="/LogInPage" element={<LoginPage/>} />
               <Route path="/AdPage" element={<AdPage/>} />
-              <Route path='/LogInPage/DashboardPage' element={<DashboarPage houses={houses} />}/>
+              <Route path='/LogInPage/DashboardPage' element={<DashboarPage/>}/>
               <Route path="/About/:id" element={<About/>} />
           </Routes>
     </div>

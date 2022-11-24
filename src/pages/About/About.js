@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Carousel } from 'react-responsive-carousel'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import API from "../../api/Api";
 
 const images =[
     "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/ba/29/5c/img-worlds-of-adventure.jpg?w=1200&h=-1&s=1",
@@ -15,14 +16,11 @@ function About() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    fetch(`https://6346a1989eb7f8c0f88109b3.mockapi.io/users/${id}`)
-      .finally(() => {
+    API.getById(id)
+    .finally(() => {
         setLoading(false);
       })
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-      });
+      .then((res) => setData(res.data))
   }, [id]);
 
   if (isLoading || data == null) {

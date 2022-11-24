@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import css from "./AdPage.module.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import API from "../../api/Api";
 
 export default function AdPage() {
   const [desc, setDesc] = useState("");
@@ -19,17 +22,18 @@ export default function AdPage() {
         description: desc,
         img: img
     }
-    fetch("https://6346a1989eb7f8c0f88109b3.mockapi.io/users", {
-        method: "POST", 
-        body: JSON.stringify(data),
-        headers: {
-            "Content-Type": "aplplication/json"
-        }
+    API.createAd(data)
+    .then(()=>{
+        notify()
     })
     .then(() => {
-        navigate("/LogInPage/DashboardPage")
+      setTimeout(navigateNew, 5000)  
     })
 }
+const navigateNew = ()=>{
+    navigate("/LogInPage/DashboardPage")
+}
+const notify = () => toast("Lorem ipsum dolor");
 
   return (
     <div>
@@ -84,6 +88,7 @@ export default function AdPage() {
           </Link>
           <button className={css.btnsec}>Save</button>
         </div>
+        <ToastContainer/>
         </form>
       </div>
       <Footer />
