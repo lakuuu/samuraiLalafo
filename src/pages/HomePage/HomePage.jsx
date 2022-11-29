@@ -6,7 +6,7 @@ import Footer from "../../components/Footer/Footer";
 import { useSelector } from "react-redux";
 
 const HomePage = () => {
-  const houses = useSelector((state) => state.data);
+  const houses = useSelector((state) => state.users.data);
   return (
     <div>
       <div className="container">

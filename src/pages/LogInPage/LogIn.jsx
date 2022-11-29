@@ -1,11 +1,12 @@
 import Title from "../../components/title/title";
 import css from "./LogIn.module.css";
 import Footer from "../../components/Footer/Footer";
-import { useNavigate  } from "react-router-dom";
 import { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { useDispatch } from "react-redux";
+import { authSliceActions } from "../../redux/authSlice";
 
 
 const LogIn = () => {
@@ -13,12 +14,13 @@ const LogIn = () => {
   const [password, setPassword] = useState("");
   const [isError, setError] = useState(false);
 
-  const navigate = useNavigate();
+  const dispatch = useDispatch(); 
+
 
     const submit = (e) =>{
         e.preventDefault()
         if(login === "admin" && password === "admin"){
-            navigate('./DashboardPage')
+            dispatch( authSliceActions.login() )
         } else {
             setError(true)
         }

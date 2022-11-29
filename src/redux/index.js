@@ -1,22 +1,26 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { authSliceReducer } from "./authSlice";
+import { usersSliceReducer } from "./usersSlice";
 
-const usersSlice = createSlice({
-    name: "users",
-    initialState:{
-        data: [] 
-    },
-    reducers:{
-        addHouses: (state, action) => {
-            state.data = action.payload
-        }
-    }
+
+
+
+
+
+const reducers = combineReducers({
+    users: usersSliceReducer, 
+    auth: authSliceReducer,
 })
 
-export const usersSliceActions = usersSlice.actions
-
 export const store = configureStore({
-    reducer: usersSlice.reducer
+    reducer: reducers
 });
+
+store.subscribe(() => {
+    const state = store.getState()
+
+    localStorage.setItem("auth", JSON.stringify(state.auth.isAuth))
+})
 
 console.log(store);
 console.log(store.getState());

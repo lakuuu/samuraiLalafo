@@ -30,9 +30,9 @@ function About() {
     <div className="container d-flex">
       <div>
            <Carousel width={'600px'}>
-           <img src={data.img} alt="" />
+           <img src={data.img} alt="#" />
            {
-            images.map((item) => <img src={item}/>)
+            images.map((item) => <img src={item} alt="#" />)
            }
            </Carousel>
       </div>

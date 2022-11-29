@@ -1,8 +1,18 @@
 import { Link, } from "react-router-dom"
+import { authSliceActions } from "../../redux/authSlice"
+import { useDispatch, useSelector } from 'react-redux'
 import css from "./Header.module.css"
 
+
 const Header = () => {
-    return (
+    const auth = useSelector( (state) => state.auth.isAuth )
+    const dispatch = useDispatch();
+
+    const onLogout = () => {
+        dispatch( authSliceActions.logout() )
+      }
+      
+    return(
         <header>
             <h1>
                 <Link className={css.logo} to="/">
@@ -12,10 +22,17 @@ const Header = () => {
             <div className={css.aboutUs}>
                   <h3>О нас</h3>
                   <h3>Контакты</h3>
-                  <Link className={css.list} to="/LogInPage">Войти</Link>
+             
+                  {
+            auth ? 
+            <>
+                  <Link to="/DashboardPage">Dashboard</Link>
+                  <div onClick={onLogout}>Logout</div>
+            </> 
+              : <Link className={css.list} to="/LogInPage">Войти</Link>
+          }
             </div>
         </header>
     )
-}
-
+ }
 export default Header;

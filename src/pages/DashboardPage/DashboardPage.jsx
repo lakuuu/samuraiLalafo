@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 
 
 const DashboarPage = () => {
-  const houses = useSelector((state) => state.data);
+  const houses = useSelector((state) => state.users.data);
   
 
   return (
