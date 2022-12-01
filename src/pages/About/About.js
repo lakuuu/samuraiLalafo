@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Carousel } from 'react-responsive-carousel'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import API from "../../api/Api";
+import css from "./About.module.css"
 
 const images =[
     "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/ba/29/5c/img-worlds-of-adventure.jpg?w=1200&h=-1&s=1",
@@ -36,7 +37,7 @@ function About() {
            }
            </Carousel>
       </div>
-      <div>
+      <div className={css.ad}>
         <h1>AdPage id = {id}</h1>
         <h2>Tittle:{data.title}</h2>
         <h2>price:{data.price}$</h2>

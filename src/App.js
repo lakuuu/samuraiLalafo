@@ -7,21 +7,22 @@ import AdPage from "./components/AdPage/AdPage";
 import DashboarPage from "./pages/DashboardPage/DashboardPage";
 import About from "./pages/About/About";
 import { useEffect } from "react";
-import API, {} from "./api/Api";
-import { useDispatch } from "react-redux";
-import { usersSliceActions } from "./redux/usersSlice"
+import { useDispatch, useSelector } from "react-redux";
 import PublicRoute from "./routes/PublicRoute";
 import PrivateRoute from "./routes/PrivateRoute";
+import { initialize } from "./redux/usersSlice";
+import Preloader from "./components/Loader/Loader";
 
 
 function App() {
   const dispatch = useDispatch()
+  const isLoading = useSelector( (state) => state.users.loading)
 
   useEffect(() => {
-    API.getAllAds().then((res) => {
-      dispatch( usersSliceActions.addHouses(res.data) )
-    });
+    dispatch( initialize() )
+    }, [dispatch]);
 
+    if (isLoading) return <Preloader full />
 
     // Api.get('users')
     //   .then((res) => setHouses(res.data))
@@ -33,8 +34,7 @@ function App() {
     // fetch(base_url + "users")
     // .then((res) => res.json())
     // .then((data) => setHouses(data))
-  },[dispatch]);
- 
+    
   return (
     <div className="App">
       <Header />

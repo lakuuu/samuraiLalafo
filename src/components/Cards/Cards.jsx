@@ -1,16 +1,14 @@
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import API from "../../api/Api";
+import { deleteCardById } from "../../redux/usersSlice";
 import css from "./cards.module.css";
 
 function Cards(  { id, img, title, price, isAdmin }  ) {
+  const dispatch = useDispatch()
   const onDelete = () => {
     const res = window.confirm("удалить?")
     if(res) {
-      API.deleteAdById(id)
-      .then(() => {
-        alert("вы успешно удалили" + id);
-        window.location.reload();
-      })
+      dispatch( deleteCardById(id))
     }
   }
   return (

@@ -26,8 +26,8 @@ const Header = () => {
                   {
             auth ? 
             <>
-                  <Link to="/DashboardPage">Dashboard</Link>
-                  <div onClick={onLogout}>Logout</div>
+                  <Link className={css.dash} to="/DashboardPage">Dashboard</Link>
+                  <div className={css.dash} onClick={onLogout}>Logout</div>
             </> 
               : <Link className={css.list} to="/LogInPage">Войти</Link>
           }

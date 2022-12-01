@@ -33,3 +33,9 @@ header h1{
     font-weight: 600;
     font-size: 20px;
 }
+.dash{
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    font-size: 18px;
+}

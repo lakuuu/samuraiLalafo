@@ -5,17 +5,25 @@ import css from "./AdPage.module.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import API from "../../api/Api";
+import { useDispatch } from "react-redux";
+import { usersSliceActions } from "../../redux/usersSlice";
 
 export default function AdPage() {
   const [desc, setDesc] = useState("");
   const [price, setPrice] = useState("");
   const [img, setImg] = useState("");
   const [title, setTitle] = useState("");
+  const [isSending, setSending] = useState(false)
 
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const navigateNew = () =>{
+    navigate("/DashboardPage")
+}
 
   const submit = (e) => {
     e.preventDefault()
+    setSending(true)
     const data = {
         title: title,
         price: price,
@@ -23,16 +31,14 @@ export default function AdPage() {
         img: img
     }
     API.createAd(data)
-    .then(()=>{
+    .then((res)=>{
+        dispatch(usersSliceActions.addHouse(res.data))
         notify()
-    })
-    .then(() => {
-      setTimeout(navigateNew, 5000)  
+      setTimeout(navigateNew, 2000)  
+
     })
 }
-const navigateNew = ()=>{
-    navigate("/LogInPage/DashboardPage")
-}
+
 const notify = () => toast("Lorem ipsum dolor");
 
   return (
@@ -86,7 +92,7 @@ const notify = () => toast("Lorem ipsum dolor");
           <Link to="/LoginPage/DashboardPage">
             <button className={css.btnone}>Close</button>
           </Link>
-          <button className={css.btnsec}>Save</button>
+          <button disabled={isSending} className={css.btnsec}>Save</button>
         </div>
         <ToastContainer/>
         </form>
