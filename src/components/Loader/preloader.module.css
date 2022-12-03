@@ -23,9 +23,10 @@
     stroke-linecap: round;
   }
   .img{
-    width: 40px;
-    height: 40px;
+    width: 100px;
+    height: 100px;
     position: absolute;
+    border-radius: 20px;
   }
   .circle {
     fill: none;

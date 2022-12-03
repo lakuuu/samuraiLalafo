@@ -33,7 +33,7 @@ function About() {
            <Carousel width={'600px'}>
            <img src={data.img} alt="#" />
            {
-            images.map((item) => <img src={item} alt="#" />)
+            images.map((item) => <img src={item} key={item} alt="#" />)
            }
            </Carousel>
       </div>

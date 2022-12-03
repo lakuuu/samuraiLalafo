@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link,  useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import css from "./AdPage.module.css";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import API from "../../api/Api";
 import { useDispatch } from "react-redux";
-import { usersSliceActions } from "../../redux/usersSlice";
+import { addHouse } from "../../redux/usersSlice";
 
 export default function AdPage() {
   const [desc, setDesc] = useState("");
@@ -15,11 +14,8 @@ export default function AdPage() {
   const [title, setTitle] = useState("");
   const [isSending, setSending] = useState(false)
 
-  const navigate = useNavigate()
   const dispatch = useDispatch()
-  const navigateNew = () =>{
-    navigate("/DashboardPage")
-}
+  const navigate = useNavigate()
 
   const submit = (e) => {
     e.preventDefault()
@@ -30,16 +26,19 @@ export default function AdPage() {
         description: desc,
         img: img
     }
-    API.createAd(data)
-    .then((res)=>{
-        dispatch(usersSliceActions.addHouse(res.data))
-        notify()
-      setTimeout(navigateNew, 2000)  
-
+    dispatch( addHouse(data))
+    .then(() => {
+      navigate("/DashboardPage")
     })
+
+//     API.createAd(data)
+//     .then((res)=>{
+//         dispatch(usersSliceActions.addHouse(res.data))
+//         notify()
+//       setTimeout(navigateNew, 2000)  
+//     })
 }
 
-const notify = () => toast("Lorem ipsum dolor");
 
   return (
     <div>
